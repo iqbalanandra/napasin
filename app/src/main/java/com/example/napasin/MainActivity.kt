@@ -1,10 +1,12 @@
 package com.example.napasin
 
 import android.content.Intent
+import android.media.Image
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -25,7 +27,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -33,6 +39,19 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.napasin.ui.theme.NapasinTheme
 
+val poppinsFamily = FontFamily(
+    Font(R.font.poppins, FontWeight.Normal),
+    Font(R.font.poppins_bold, FontWeight.Bold),
+    Font(R.font.poppins_semibold, FontWeight.SemiBold),
+    Font(R.font.poppins_medium, FontWeight.Medium),
+    Font(R.font.poppins_light, FontWeight.Light),
+    Font(R.font.poppins_black, FontWeight.Black),
+    Font(R.font.poppins_extrabold, FontWeight.ExtraBold)
+)
+
+val bebasFamily = FontFamily(
+    Font(R.font.bebas_neue, FontWeight.Normal)
+)
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,7 +68,7 @@ fun NapasInScreen() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFF4A90E2)),
+            .background(Color(0xFF009FFF)),
         verticalArrangement = Arrangement.SpaceBetween,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -60,17 +79,22 @@ fun NapasInScreen() {
             Logo()
             Text(
                 text = "NAPAS.IN",
-                fontSize = 36.sp,
+                fontSize = 100.sp,
                 fontWeight = FontWeight.Bold,
                 color = Color.White,
-                textAlign = TextAlign.Center
+                textAlign = TextAlign.Center,
+                fontFamily = bebasFamily,
+                lineHeight = 100.sp
             )
             Text(
                 text = "BREATHE FREELY LIVE FULLY",
-                fontSize = 16.sp,
+                fontSize = 22.sp,
                 fontWeight = FontWeight.Medium,
                 color = Color.White,
-                textAlign = TextAlign.Center
+                textAlign = TextAlign.Center,
+                fontFamily = bebasFamily,
+                letterSpacing = 3.5.sp,
+                lineHeight = 100.sp
             )
         }
         Button(
@@ -84,7 +108,7 @@ fun NapasInScreen() {
                 .fillMaxWidth()
                 .height(56.dp)
         ) {
-            Text(text = "Start", color = Color(0xFF009FFF), fontSize = 18.sp)
+            Text(text = "Start", color = Color(0xFF009FFF), fontSize = 20.sp, fontFamily = poppinsFamily, fontWeight = FontWeight.Bold)
         }
         ClickableText(
             text = AnnotatedString("Terms and Privacy Policy"),
@@ -101,11 +125,7 @@ fun NapasInScreen() {
 @Composable
 fun Logo() {
     // Placeholder for logo
-    Box(
-        modifier = Modifier
-            .size(100.dp)
-            .background(Color.White.copy(alpha = 0.2f))
-    )
+        Image(painter = painterResource(id = R.drawable.logo), contentDescription = null, Modifier.size(83.dp))
 }
 
 @Preview(showBackground = true)

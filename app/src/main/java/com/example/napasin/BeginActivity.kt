@@ -21,6 +21,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -33,19 +34,20 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.napasin.ui.theme.NapasinTheme
 
-class AboutActivity : ComponentActivity() {
+class BeginActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            aboutNapasin()
+            BeginScreen()
         }
     }
 }
 
 @Composable
-fun aboutNapasin(){
+fun BeginScreen(){
     val context = LocalContext.current
 //    Start Container Screen
     Column(modifier = Modifier
@@ -59,11 +61,12 @@ fun aboutNapasin(){
             .height(36.dp)){
             IconButton(
                 onClick = {
-                    val navigate = Intent(context, MainActivity::class.java)
+                    val navigate = Intent(context, EulaActivity::class.java)
                     context.startActivity(navigate)
                 },
             ){
-                Icon(painter = painterResource(id = R.drawable.icons_back), contentDescription = null, tint = Color.White)}
+                Icon(painter = painterResource(id = R.drawable.icons_back), contentDescription = null, tint = Color.White)
+            }
         }
 
         // Rest of the content with spacing
@@ -72,12 +75,12 @@ fun aboutNapasin(){
             verticalArrangement = Arrangement.SpaceAround) {
 
             Row {
-                Image(painter = painterResource(id = R.drawable.meditasi), contentDescription = null, Modifier.size(260.dp))
+                Image(painter = painterResource(id = R.drawable.hore), contentDescription = null, Modifier.size(314.dp))
             }
 
             Column {
                 Text(
-                    text = "NAPAS.IN makes breathing an interactive & fun exercise",
+                    text = "Alright, let's start your first training!",
                     color = Color.White,
                     fontWeight = FontWeight.Bold,
                     fontFamily = poppinsFamily,
@@ -86,10 +89,11 @@ fun aboutNapasin(){
                 )
                 Spacer(modifier = Modifier.height(30.dp))
                 Text(
-                    text = "we will help you through simple training exercises that you can do every day.",
+                    text = "Follow the instructions from NAPAS.IN in practicing breathing, and get maximum results",
                     color = Color.White,
                     fontFamily = poppinsFamily,
-                    fontSize = 20.sp,textAlign =  TextAlign.Center
+                    fontSize = 16.sp,
+                    textAlign =  TextAlign.Center
                 )
             }
 
@@ -98,13 +102,10 @@ fun aboutNapasin(){
                     .fillMaxWidth()
                     .padding(16.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = Color.White),
-                onClick = {
-                    val navigate = Intent(context, EulaActivity::class.java)
-                    context.startActivity(navigate)
-                }
+                onClick = {/*TODO*/ }
             ) {
                 Text(
-                    text = "Next",
+                    text = "Start Your Breathe!",
                     fontFamily = poppinsFamily,
                     fontSize = 20.sp,
                     color = Color(0xFF009FFF),
@@ -116,8 +117,9 @@ fun aboutNapasin(){
 //    End Container Screen
 }
 
+
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
-    aboutNapasin()
+fun GreetingPreview3() {
+    BeginScreen()
 }
