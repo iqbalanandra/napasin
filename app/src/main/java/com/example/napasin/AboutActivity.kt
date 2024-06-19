@@ -56,6 +56,7 @@ fun aboutNapasin(){
         // Icon Container (no spacing around it)
         Row(modifier = Modifier
             .fillMaxWidth()
+            .padding(top = 36.dp)
             .height(36.dp)){
             IconButton(
                 onClick = {
@@ -67,11 +68,16 @@ fun aboutNapasin(){
         }
 
         // Rest of the content with spacing
+//        Spacer(modifier = Modifier.height(160.dp))
+
         Column(modifier = Modifier.fillMaxHeight(), // This makes this Column fill the remaining space atau bisa pake weight(1f)
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.SpaceAround) {
 
-            Row {
+            Row (
+                modifier = Modifier
+                    .padding(top = 100.dp)
+            ) {
                 Image(painter = painterResource(id = R.drawable.meditasi), contentDescription = null, Modifier.size(260.dp))
             }
 
@@ -86,17 +92,21 @@ fun aboutNapasin(){
                 )
                 Spacer(modifier = Modifier.height(30.dp))
                 Text(
+
                     text = "we will help you through simple training exercises that you can do every day.",
                     color = Color.White,
                     fontFamily = poppinsFamily,
-                    fontSize = 20.sp,textAlign =  TextAlign.Center
+                    fontSize = 16.sp,textAlign =  TextAlign.Center
                 )
             }
+
+//            Spacer(modifier = Modifier.height(100.dp))
 
             Button(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(16.dp),
+                    .padding(bottom = 56.dp)
+                    .height(46.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = Color.White),
                 onClick = {
                     val navigate = Intent(context, EulaActivity::class.java)
@@ -108,7 +118,7 @@ fun aboutNapasin(){
                     fontFamily = poppinsFamily,
                     fontSize = 20.sp,
                     color = Color(0xFF009FFF),
-                    fontWeight = FontWeight.ExtraBold
+                    fontWeight = FontWeight.SemiBold
                 )
             }
         }

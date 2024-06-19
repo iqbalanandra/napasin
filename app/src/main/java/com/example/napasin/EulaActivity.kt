@@ -1,6 +1,7 @@
 package com.example.napasin
 
 import android.content.Intent
+import android.graphics.Paint.Align
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -30,6 +31,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -57,6 +59,7 @@ fun EulaScreen() {
         // Icon Container (no spacing around it)
         Row(modifier = Modifier
             .fillMaxWidth()
+            .padding(top = 36.dp)
             .height(36.dp)) {
             IconButton(
                 onClick = {
@@ -70,16 +73,19 @@ fun EulaScreen() {
 
         // Rest of the content with spacing
         Column(modifier = Modifier
-            .fillMaxHeight()
-            .weight(1f), // This makes this Column fill the remaining space or you can use weight(1f)
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.SpaceAround){
+            .padding(top = 36.dp, start = 16.dp, end = 16.dp, bottom = 16.dp)
+            .fillMaxHeight(), // This makes this Column fill the remaining space or you can use weight(1f)
+
+            horizontalAlignment = Alignment.CenterHorizontally){
 
             Text(
-                text = "There are a few things to consider before using NAPAS.IN. We have summarized some important things here:",
+                modifier = Modifier
+                    .padding(bottom = 24.dp),
+                text = "There are a few things to consider before using NAPAS.IN. We have summarized some important things here :",
                 fontWeight = FontWeight.Bold,
                 fontFamily = poppinsFamily,
-                fontSize = 18.sp,
+                textAlign = TextAlign.Justify,
+                fontSize = 16.sp,
                 color = Color.White
             )
 
@@ -87,11 +93,12 @@ fun EulaScreen() {
             // Start Container each Rule
             Box(modifier = Modifier
                 .fillMaxWidth()
-                .padding(8.dp)
+                .padding(bottom = 20.dp)
             ) {
                 Row {
                     Box(modifier = Modifier
-                        .size(50.dp)) {
+                        .size(50.dp)
+                    ) {
                         Icon(painter = painterResource(id = R.drawable.icon_privacy), contentDescription = null, tint = Color.White)
                     }
                     Spacer(modifier = Modifier.width(8.dp))
@@ -100,15 +107,16 @@ fun EulaScreen() {
                             text = "PRIVACY",
                             fontWeight = FontWeight.Bold,
                             fontFamily = poppinsFamily,
-                            fontSize = 18.sp,
+                            fontSize = 16.sp,
                             color = Color.White
                         )
 
                         Text(
                             text = "We do not collect personal or other data. NAPAS.IN stores all data securely on your phone - it is never shared or transferred.",
                             fontWeight = FontWeight.Medium,
+                            textAlign = TextAlign.Justify,
                             fontFamily = poppinsFamily,
-                            fontSize = 18.sp,
+                            fontSize = 12.sp,
                             color = Color.White
                         )
                     }
@@ -118,7 +126,7 @@ fun EulaScreen() {
             // Start Container each Rule
             Box(modifier = Modifier
                 .fillMaxWidth()
-                .padding(8.dp)
+                .padding(bottom = 20.dp)
             ) {
                 Row {
                     Box(modifier = Modifier
@@ -131,15 +139,16 @@ fun EulaScreen() {
                             text = "INTENDED USE",
                             fontWeight = FontWeight.Bold,
                             fontFamily = poppinsFamily,
-                            fontSize = 18.sp,
+                            fontSize = 16.sp,
                             color = Color.White
                         )
 
                         Text(
                             text = "This version of NAPAS.IN is intended for relaxation and should not be used if you feel short of breath. If you have a diagnosed health condition, talk to your doctor before using NAPAS.IN.",
                             fontWeight = FontWeight.Medium,
+                            textAlign = TextAlign.Justify,
                             fontFamily = poppinsFamily,
-                            fontSize = 18.sp,
+                            fontSize = 12.sp,
                             color = Color.White
                         )
                     }
@@ -149,7 +158,7 @@ fun EulaScreen() {
             // Start Container each Rule
             Box(modifier = Modifier
                 .fillMaxWidth()
-                .padding(8.dp)
+                .padding(bottom = 20.dp)
             ) {
                 Row {
                     Box(modifier = Modifier
@@ -162,39 +171,45 @@ fun EulaScreen() {
                             text = "IF YOU FEEL TIRED, TAKE A REST",
                             fontWeight = FontWeight.Bold,
                             fontFamily = poppinsFamily,
-                            fontSize = 18.sp,
+                            fontSize = 16.sp,
                             color = Color.White
                         )
 
                         Text(
                             text = "Allowing your body to recuperate can enhance your focus, productivity, and overall well-being.",
                             fontWeight = FontWeight.Medium,
+                            textAlign = TextAlign.Justify,
                             fontFamily = poppinsFamily,
-                            fontSize = 18.sp,
+                            fontSize = 12.sp,
                             color = Color.White
                         )
                     }
                 }
-            }
 
+            }
+            Spacer(modifier = Modifier.height(100.dp))
             Button(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(16.dp),
+                    .height(42.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = Color.White),
                 onClick = {
                     val navigate = Intent(context, BeginActivity::class.java)
                     context.startActivity(navigate)
-                }) {
+                }
+            ) {
                 Text(
                     text = "Accept",
                     fontFamily = poppinsFamily,
                     fontSize = 20.sp,
                     color = Color(0xFF009FFF),
-                    fontWeight = FontWeight.ExtraBold
+                    fontWeight = FontWeight.SemiBold
                 )
             }
+
         }
+
+
 
     }
     // End Container Screen

@@ -58,6 +58,7 @@ fun BeginScreen(){
         // Icon Container (no spacing around it)
         Row(modifier = Modifier
             .fillMaxWidth()
+            .padding(top = 36.dp)
             .height(36.dp)){
             IconButton(
                 onClick = {
@@ -70,13 +71,13 @@ fun BeginScreen(){
         }
 
         // Rest of the content with spacing
-        Column(modifier = Modifier.fillMaxHeight(), // This makes this Column fill the remaining space atau bisa pake weight(1f)
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.SpaceAround) {
+        Column(modifier = Modifier.padding(top = 40.dp).fillMaxHeight(), // This makes this Column fill the remaining space atau bisa pake weight(1f)
+            horizontalAlignment = Alignment.CenterHorizontally) {
 
             Row {
                 Image(painter = painterResource(id = R.drawable.hore), contentDescription = null, Modifier.size(314.dp))
             }
+            Spacer(modifier = Modifier.height(30.dp))
 
             Column {
                 Text(
@@ -96,20 +97,24 @@ fun BeginScreen(){
                     textAlign =  TextAlign.Center
                 )
             }
+            Spacer(modifier = Modifier.height(60.dp))
 
             Button(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(16.dp),
+                    .height(46.dp)
+                    .fillMaxWidth(),
                 colors = ButtonDefaults.buttonColors(containerColor = Color.White),
-                onClick = {/*TODO*/ }
+                onClick = {
+                    val navigate = Intent(context, HomeActivity::class.java)
+                    context.startActivity(navigate)
+                }
             ) {
                 Text(
                     text = "Start Your Breathe!",
                     fontFamily = poppinsFamily,
                     fontSize = 20.sp,
                     color = Color(0xFF009FFF),
-                    fontWeight = FontWeight.ExtraBold
+                    fontWeight = FontWeight.SemiBold
                 )
             }
         }

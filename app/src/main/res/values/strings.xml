@@ -3,4 +3,5 @@
     <string name="title_activity_about">about</string>
     <string name="title_activity_eula">EulaActivity</string>
     <string name="title_activity_begin">BeginActivity</string>
+    <string name="title_activity_home">HomeActivity</string>
 </resources>

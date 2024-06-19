@@ -72,23 +72,23 @@ fun NapasInScreen() {
         verticalArrangement = Arrangement.SpaceBetween,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(200.dp))
         Column(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Logo()
             Text(
                 text = "NAPAS.IN",
-                fontSize = 100.sp,
-                fontWeight = FontWeight.Bold,
+                fontSize = 86.sp,
+                fontWeight = FontWeight.Normal,
                 color = Color.White,
                 textAlign = TextAlign.Center,
                 fontFamily = bebasFamily,
-                lineHeight = 100.sp
+                
             )
             Text(
                 text = "BREATHE FREELY LIVE FULLY",
-                fontSize = 22.sp,
+                fontSize = 18.sp,
                 fontWeight = FontWeight.Medium,
                 color = Color.White,
                 textAlign = TextAlign.Center,
@@ -97,6 +97,7 @@ fun NapasInScreen() {
                 lineHeight = 100.sp
             )
         }
+        Spacer(modifier = Modifier.height(130.dp))
         Button(
             onClick = {
                 val navigate = Intent(context, AboutActivity::class.java)
@@ -104,12 +105,19 @@ fun NapasInScreen() {
             },
             colors = ButtonDefaults.buttonColors(containerColor = Color.White),
             modifier = Modifier
-                .padding(16.dp)
+                .padding(16.dp)  // Adjust the top margin value here
                 .fillMaxWidth()
-                .height(56.dp)
+                .height(46.dp)
         ) {
-            Text(text = "Start", color = Color(0xFF009FFF), fontSize = 20.sp, fontFamily = poppinsFamily, fontWeight = FontWeight.Bold)
+            Text(
+                text = "Start",
+                color = Color(0xFF009FFF),
+                fontSize = 20.sp,
+                fontFamily = poppinsFamily,
+                fontWeight = FontWeight.SemiBold
+            )
         }
+
         ClickableText(
             text = AnnotatedString("Terms and Privacy Policy"),
             onClick = { /* TODO: Add terms and privacy policy action */ },
