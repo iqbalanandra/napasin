@@ -13,6 +13,26 @@
         android:theme="@style/Theme.Napasin"
         tools:targetApi="31">
         <activity
+            android:name=".GuideActivity"
+            android:exported="false"
+            android:label="@string/title_activity_guide"
+            android:theme="@style/Theme.Napasin" />
+        <activity
+            android:name=".MeditationActivity"
+            android:exported="false"
+            android:label="@string/title_activity_meditation"
+            android:theme="@style/Theme.Napasin" />
+        <activity
+            android:name=".ui.theme.MeditationActivity.kt"
+            android:exported="false"
+            android:label="@string/title_activity_meditation_activity.kt"
+            android:theme="@style/Theme.Napasin" />
+        <activity
+            android:name=".Meditation"
+            android:exported="false"
+            android:label="@string/title_activity_meditation"
+            android:theme="@style/Theme.Napasin" />
+        <activity
             android:name=".HomeActivity"
             android:exported="false"
             android:label="@string/title_activity_home"

@@ -4,4 +4,7 @@
     <string name="title_activity_eula">EulaActivity</string>
     <string name="title_activity_begin">BeginActivity</string>
     <string name="title_activity_home">HomeActivity</string>
+    <string name="title_activity_meditation">Meditation</string>
+    <string name="title_activity_meditation_activity.kt">MeditationActivity.kt</string>
+    <string name="title_activity_guide">GuideActivity</string>
 </resources>
