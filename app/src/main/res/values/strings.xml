@@ -7,4 +7,5 @@
     <string name="title_activity_meditation">Meditation</string>
     <string name="title_activity_meditation_activity.kt">MeditationActivity.kt</string>
     <string name="title_activity_guide">GuideActivity</string>
+    <string name="title_activity_setting">SettingActivity</string>
 </resources>

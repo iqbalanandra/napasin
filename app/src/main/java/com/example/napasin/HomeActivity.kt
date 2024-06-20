@@ -251,10 +251,15 @@ fun BottomNavigationBar(currentActivity: String) {
                     tint = Color.White
                 )
             }
-            IconButton(onClick = {}) {
+            IconButton(onClick = {
+                if (currentActivity != "SettingActivity") {
+                    val navigate = Intent(context, SettingActivity::class.java)
+                    context.startActivity(navigate)
+                }
+            }) {
                 Icon(
-                    painter = painterResource(id = R.drawable.ic_settings),
-                    contentDescription = "Settings",
+                    painter = painterResource(id = R.drawable.ic_list),
+                    contentDescription = "List",
                     tint = Color.White
                 )
             }
